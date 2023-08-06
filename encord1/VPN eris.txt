@@ -1,0 +1,26 @@
+JPN PC
+conf t
+no logging console
+no ip domain-lookup
+int gi 2
+no shut
+ip add 192.168.102.10
+
+PH PC
+conf t
+no logging console
+no ip domain-lookup
+int gi 2
+no shut
+ip add 192.168.102.20
+
+--------
+JPN LINUX
+sudo ifconfig eth0 10.10.10.10 netmask 255.255.255.0 up
+sudo route add default gw 10.10.10.1
+netstat -rn
+
+PH LINUX
+sudo ifconfig eth0 10.20.20.20 netmask 255.255.255.0 up
+sudo route add default gw 10.20.20.1
+netstat -rn
